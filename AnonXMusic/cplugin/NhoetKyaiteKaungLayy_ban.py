@@ -1,10 +1,10 @@
 import requests
 import random
-from BrandrdXMusic import app, userbot
-from BrandrdXMusic.misc import SUDOERS
+from AnonXMusic import app, userbot
+from AnonXMusic.misc import SUDOERS
 from pyrogram import filters, Client
 from pyrogram.types import *
-from BrandrdXMusic.utils.branded_ban import admin_filter
+from AnonXMusic.utils.NhoetKyaiteKaungLayy_ban import admin_filter
 
 
 branded_text = [
