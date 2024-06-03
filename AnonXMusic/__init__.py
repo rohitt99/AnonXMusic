@@ -13,7 +13,6 @@ heroku()
 
 app = Anony()
 userbot = Userbot()
-api = SafoneAPI()
 
 from .platforms import *
 
