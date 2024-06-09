@@ -48,7 +48,7 @@ def welcomepic(pic, user, chatname, id, uname):
     pfp = circle(pfp)
     pfp = pfp.resize((825, 824))
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('AnonXMusic/assets/font.ttf', size=120)
+    font = ImageFont.truetype('AnonXMusic/assets/font.ttf', size=110)
     welcome_font = ImageFont.truetype('AnonXMusic/assets/font.ttf', size=60)
     draw.text((2100, 1420), f'ID: {id}', fill=(12000, 12000, 12000), font=font)
     pfp_position = (1990, 435)
@@ -86,15 +86,17 @@ async def greet_group(_, member: ChatMemberUpdated):
             member.chat.id,
             photo=welcomeimg,
             caption=f"""
-𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝗧𝗼 {member.chat.title}
-➖➖➖➖➖➖➖➖➖➖➖
-๏ 𝗡𝗔𝗠𝗘 ➠ {user.mention}
-๏ 𝗜𝗗 ➠ {user.id}
-๏ 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 ➠ @{user.username}
-๏ 𝐌𝐀𝐃𝐄 𝐁𝐘 ➠ @NhoeKyaiteKaungLayy
-➖➖➖➖➖➖➖➖➖➖➖
+❅────✦ ᴡᴇʟᴄᴏᴍᴇ ✦────❅
+▰▰▰▰▰▰▰▰▰▰▰▰▰
+๏ Cԋαƚ Nαɱҽ ➠ {member.chat.title}
+๏ Nαɱҽ ➠ {user.mention}
+๏ Iԃ ➠ {user.id}
+๏ Uʂҽɾɳαɱҽ ➠ @{user.username}
+๏ MαԃҽႦყ ➠ @NhoeKyaiteKaungLayy
+▰▰▰▰▰▰▰▰▰▰▰▰▰
+❅─────✧❅✦❅✧─────❅
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/sasukexmusic_bot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"💞 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 💞", url=f"https://t.me/sasukexmusic_bot?startgroup=true")]])
         )
     except Exception as e:
         LOGGER.error(e)
@@ -111,8 +113,8 @@ async def bot_wel(_, message):
             await app.send_message(LOG_CHANNEL_ID, f"""
 NEW GROUP
 ➖➖➖➖➖➖➖➖➖➖➖
-𝗡𝗔𝗠𝗘: {message.chat.title}
-𝗜𝗗: {message.chat.id}
-𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄: @{message.chat.username}
+Nαɱҽ: {message.chat.title}
+Iԃ: {message.chat.id}
+Uʂҽɾɳαɱҽ: @{message.chat.username}
 ➖➖➖➖➖➖➖➖➖➖➖
 """)
