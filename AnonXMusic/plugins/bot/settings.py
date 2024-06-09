@@ -67,6 +67,17 @@ async def settings_cb(client, CallbackQuery, _):
     )
 
 
+@app.on_callback_query(filters.regex("gib_source") & ~BANNED_USERS)
+@languageCB
+async def gib_repo(client, CallbackQuery, _):
+    await CallbackQuery.edit_message_media(
+        InputMediaVideo("https://graph.org/file/78d31ae760aa6c1643f8c.mp4"),
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data=f"settingsback_helper")]]
+        ),
+    )
+
+
 @app.on_callback_query(filters.regex("settingsback_helper") & ~BANNED_USERS)
 @languageCB
 async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
