@@ -6,6 +6,8 @@ from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
     Message,
+    InputMediaPhoto,
+    InputMediaVideo,
 )
 
 from AnonXMusic import app
@@ -34,7 +36,7 @@ from AnonXMusic.utils.inline.settings import (
     vote_mode_markup,
 )
 from AnonXMusic.utils.inline.start import private_panel
-from config import BANNED_USERS, OWNER_ID
+from config import BANNED_USERS, OWNER_ID MUSIC_BOT_NAME, START_IMG_URL
 
 
 @app.on_message(
@@ -46,6 +48,16 @@ async def settings_mar(client, message: Message, _):
     await message.reply_text(
         _["setting_1"].format(app.mention, message.chat.id, message.chat.title),
         reply_markup=InlineKeyboardMarkup(buttons),
+    )
+
+@app.on_callback_query(filters.regex("gib_source") & ~BANNED_USERS)
+@languageCB
+async def gib_repo(client, CallbackQuery, _):
+    await CallbackQuery.edit_message_media(
+        InputMediaVideo("https://te.legra.ph/file/2b8291641c7f35a9bee51.mp4"),
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data=f"settings_back_helper")]]
+        ),
     )
 
 
@@ -64,17 +76,6 @@ async def settings_cb(client, CallbackQuery, _):
             CallbackQuery.message.chat.title,
         ),
         reply_markup=InlineKeyboardMarkup(buttons),
-    )
-
-
-@app.on_callback_query(filters.regex("gib_source") & ~BANNED_USERS)
-@languageCB
-async def gib_repo(client, CallbackQuery, _):
-    await CallbackQuery.edit_message_media(
-        InputMediaVideo("https://te.legra.ph/file/2b8291641c7f35a9bee51.mp4"),
-        reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data=f"settings_back_helper")]]
-        ),
     )
 
 
