@@ -36,7 +36,7 @@ from AnonXMusic.utils.inline.settings import (
     vote_mode_markup,
 )
 from AnonXMusic.utils.inline.start import private_panel
-from config import BANNED_USERS, OWNER_ID MUSIC_BOT_NAME, START_IMG_URL
+from config import BANNED_USERS,
 
 
 @app.on_message(
